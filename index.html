@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Current Date and Time</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f5f5f5;
+      color: #333;
+    }
+    #datetime {
+      font-size: 2rem;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      display: inline-block;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body>
+  <h1>Current Date and Time</h1>
+  <div id="datetime"></div>
+
+  <script>
+    function updateDateTime() {
+      const now = new Date();
+      // Format: YYYY-MM-DD HH:MM:SS
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, '0');
+      const dd = String(now.getDate()).padStart(2, '0');
+      const hh = String(now.getHours()).padStart(2, '0');
+      const mi = String(now.getMinutes()).padStart(2, '0');
+      const ss = String(now.getSeconds()).padStart(2, '0');
+      const formatted = `${yyyy}-${mm}-${dd} ${hh}:${mi}:${ss}`;
+      document.getElementById('datetime').textContent = formatted;
+    }
+    setInterval(updateDateTime, 1000);
+    updateDateTime();
+  </script>
+</body>
+</html>
